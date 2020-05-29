@@ -1,16 +1,15 @@
-from enum import IntEnum, unique, auto
+from enum import Enum, IntEnum, unique
 
 
 @unique
-class Category(IntEnum):
+class Category(Enum):
 
-    def __init__(self):
-        self._events = list()
+    @classmethod
+    def createSuggestedCategory(cls):
+        cls.unnecessary = 1
+        cls.unimportant = 2
+        cls.important = 3
+        cls.crucial = 4
+        cls.fixed = 5
+        print(cls)
 
-
-Category.Unnecessary = auto()
-Category.Unimportant = auto()
-Category.Important = auto()
-Category.HighPriority = auto()
-Category.Crucial = auto()
-Category.Fixed = auto()
