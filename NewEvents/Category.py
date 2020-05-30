@@ -1,15 +1,16 @@
-from enum import Enum, IntEnum, unique
-
-
-@unique
-class Category(Enum):
+class Category:
 
     @classmethod
     def createSuggestedCategory(cls):
-        cls.unnecessary = 1
-        cls.unimportant = 2
-        cls.important = 3
-        cls.crucial = 4
-        cls.fixed = 5
-        print(cls)
+        return {
+            'unnecessary': 0,
+            'unimportant': 1,
+            'important': 2,
+            'crucial': 3,
+            'fixed': 4
+        }
 
+    @classmethod
+    def createOwnCategory(cls, anotherCategory, categories):
+        categories[anotherCategory] = len(categories)
+        return categories
