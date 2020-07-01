@@ -7,5 +7,5 @@ class Event(object):
         self._name = name
         self._description = description
         self._start = start or datetime.datetime.now()
-        self._end = start or datetime.datetime.now()
+        self._end = end or datetime.datetime.now()
 

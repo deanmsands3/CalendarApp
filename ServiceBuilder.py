@@ -8,7 +8,7 @@ from google.auth.transport.requests import Request
 
 class ServiceBuilder(object):
     # If modifying these scopes, delete the file token.pickle.
-    SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
+    SCOPES = ['https://www.googleapis.com/auth/calendar.events']
 
     def __init__(self):
         self._creds = None
@@ -46,7 +46,9 @@ class ServiceBuilder(object):
         # If there are no (valid) credentials available, let the user log in.
         if not self._creds_are_valid():
             self._refresh_creds()
+        #pdb.set_trace()
         self._service = build('calendar', 'v3', credentials=self._creds)
+
         return self._service
 
     def now(self) -> str:
