@@ -1,6 +1,6 @@
 from googleapiclient.discovery import Resource
 import datetime
-
+import pdb
 
 class EventLister(object):
     def __init__(self, service: Resource):
@@ -8,7 +8,9 @@ class EventLister(object):
 
     def get_events(self, *args, **kwargs):
         events = self._service.events()
-        events_list = events.list(*args, **kwargs).execute()
+        print(self._service)
+        events_list = events.list(*args,**kwargs).execute()
+
         return events_list
 
     def list_events(self) -> None:
@@ -30,7 +32,7 @@ class EventLister(object):
         if not events:
             print('No upcoming events found.')
             return
-
+        print(events)
         for event in events:
             self.list_event(event)
 
